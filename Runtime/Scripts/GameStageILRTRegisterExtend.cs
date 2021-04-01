@@ -1,4 +1,5 @@
-﻿using TinaX.GameStage.Internal.Adaptors;
+using TinaX.GameStage.Internal.Adaptors;
+using TinaX.GameStage.Internal.CLRMethodRedirections;
 
 namespace TinaX.XILRuntime.Registers
 {
@@ -8,6 +9,9 @@ namespace TinaX.XILRuntime.Registers
         {
             //跨域继承适配器
             xil.RegisterCrossBindingAdaptor(new StageControllerBaseAdapter());
+
+            //CLR重定向
+            RedirectGameStage.Register(xil);
 
             return xil;
         }
